@@ -52,7 +52,7 @@ function liveMessage(
     case "evening":
       return EVENINGS.includes(value as (typeof EVENINGS)[number])
         ? undefined
-        : "Required: choose Thursday, September 24 or Wednesday, October 14, 2026.";
+        : "Required: choose Wednesday, October 14, 2026.";
     case "firstname":
       return value.trim() ? undefined : "Required: first name.";
     case "lastname":

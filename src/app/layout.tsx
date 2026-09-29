@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Miami Executive Roundtable | Express Analytics",
   description:
-    "A private, off-the-record roundtable for senior Data, AI and Marketing leaders. Twelve seats at COTE Miami. September and October 2026.",
+    "A private, off-the-record roundtable for senior Data, AI and Marketing leaders. Twelve seats at COTE Miami. October 2026.",
   keywords: [
     "Miami executive roundtable",
     "Express Analytics",

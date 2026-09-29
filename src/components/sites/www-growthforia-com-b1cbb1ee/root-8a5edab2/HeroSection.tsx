@@ -43,7 +43,7 @@ export function HeroSection() {
       >
         <div className="min-w-0">
           <p className="text-[12px] font-medium tracking-[0.14em] text-white/80 uppercase md:text-[13px]">
-            Miami · Private Executive Dinner · September & October 2026
+            Miami · Private Executive Dinner · October 2026
           </p>
           <h1 className="font-display mt-4 max-w-full whitespace-nowrap text-[clamp(0.65rem,2.15vw,2.35rem)] leading-[1.05] tracking-[-0.03em] text-white">
             12 Leaders. One Table.{" "}<br />
@@ -87,7 +87,6 @@ export function HeroSection() {
 
         <div className="flex min-w-0 items-end justify-end md:self-end">
           <div className="flex max-w-full flex-col items-end gap-6 md:gap-8">
-            <HeroDate month="Sep" day="24th" />
             <HeroDate month="Oct" day="14th" />
           </div>
         </div>

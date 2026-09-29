@@ -1,10 +1,7 @@
 export const HS_PORTAL_ID_DEFAULT = "287495";
 export const HS_FORM_ID_DEFAULT = "bab2b362-d82c-47da-b62e-f09f855d17ef";
 
-export const EVENINGS = [
-  "Thursday, September 24, 2026",
-  "Wednesday, October 14, 2026",
-] as const;
+export const EVENINGS = ["Wednesday, October 14, 2026"] as const;
 
 export const READINESS = [
   "Just starting - exploring concepts and gathering foundational data",
@@ -161,4 +158,5 @@ export function toHubSpotFields(data: InviteInput) {
   }
   return rows;
 }
+
 
