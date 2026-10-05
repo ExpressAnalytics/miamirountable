@@ -2,6 +2,8 @@ export const ASSET =
   "/sites/www-growthforia-com-b1cbb1ee/root-8a5edab2";
 
 export const HERO_VIDEO = `${ASSET}/hero_bg.mp4`;
+export const HERO_POSTER = `${ASSET}/images/hero-poster.jpg`;
+export const LOCATION_POSTER = `${ASSET}/images/location-poster.jpg`;
 
 export const TICKET_URL = "#pricing";
 export const TICKETBUTLER =
@@ -38,7 +40,7 @@ export const speakers = [
   {
     name: "Jorge Sepulveda",
     role: "Chief Revenue Officer",
-    email: "jorge@ExpressAnalytics.com",
+    email: "jorge@expressanalytics.com",
     linkedin: "https://www.linkedin.com/in/jorgesep/",
     image: `${ASSET}/images/jorge.webp`,
   },
@@ -114,10 +116,10 @@ export const faqs = [
     q: "What’s the dress code?",
     a: "Business casual, you're coming straight from work. Our host team will be in business attire.",
   },
-  {
-    q: "Can I attend both evenings?",
-    a: "Each evening is capped at twelve seats to keep the conversation intimate, we’d love to have you at one. Pick whichever date works best above.",
-  },
+  // {
+  //   q: "Can I attend both evenings?",
+  //   a: "Each evening is capped at twelve seats to keep the conversation intimate, we’d love to have you at one. Pick whichever date works best above.",
+  // },
 ];
 
 export const pricingPerks = [
@@ -127,3 +129,4 @@ export const pricingPerks = [
   "All session recordings on-demand after the event",
   "Slides and materials sent post-event",
 ];
+

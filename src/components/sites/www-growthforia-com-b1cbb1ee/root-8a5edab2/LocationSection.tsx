@@ -1,52 +1,10 @@
-"use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ASSET } from "@/lib/growthforia/content";
+import { ASSET, LOCATION_POSTER } from "@/lib/growthforia/content";
 import { CheckIcon } from "../shared/icons";
+import { VideoCover } from "./VideoCover";
 
 const LOCATION_VIDEO = `${ASSET}/location.mp4`;
-const HIDE_MS = 8000;
-const SEATS = 12;
 
 export function LocationSection() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [ready, setReady] = useState(false);
-  const markReady = useCallback(() => setReady(true), []);
-
-  useEffect(() => {
-    const el = videoRef.current;
-    const section = document.getElementById("location");
-    if (!el || !section) return;
-
-    let poll = 0;
-    let hide = 0;
-    const start = () => {
-      void el.play().catch(() => markReady());
-      if (poll) return;
-      poll = window.setInterval(() => {
-        if (el.readyState >= 2 || !el.paused) markReady();
-      }, 150);
-      hide = window.setTimeout(() => {
-        markReady();
-        window.clearInterval(poll);
-      }, HIDE_MS);
-    };
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) start();
-        else el.pause();
-      },
-      { rootMargin: "200px 0px" },
-    );
-    io.observe(section);
-    return () => {
-      io.disconnect();
-      window.clearInterval(poll);
-      window.clearTimeout(hide);
-    };
-  }, [markReady]);
-
   return (
     <section id="location" className="bg-[#0b0c0e] py-20 md:py-[80px]">
       <div className="gf-container">
@@ -55,50 +13,7 @@ export function LocationSection() {
         </h2>
 
         <div className="relative mt-12 h-[420px] overflow-hidden md:h-[560px]">
-          <video
-            ref={videoRef}
-            className="absolute inset-0 h-[420px] w-full object-cover md:h-[560px]"
-            muted
-            loop
-            playsInline
-            preload="none"
-            src={LOCATION_VIDEO}
-            onPlaying={markReady}
-            onCanPlay={markReady}
-            onError={markReady}
-            aria-hidden
-          />
-
-          <style>{`@keyframes gf-loc-hide{to{opacity:0;visibility:hidden}}#location-loader.is-pending{animation:gf-loc-hide .4s ease 1.1s forwards}`}</style>
-          <div
-            id="location-loader"
-            className={`absolute inset-0 z-[1] flex items-center justify-center bg-[#0b0c0e] transition-opacity duration-500 motion-reduce:transition-none ${
-              ready ? "pointer-events-none opacity-0" : "is-pending opacity-100"
-            }`}
-            role="status"
-            aria-live="polite"
-            aria-busy={!ready}
-            aria-label={ready ? "Video loaded" : "Loading video"}
-          >
-            <div className="relative size-16 md:size-14" aria-hidden>
-              <span className="absolute inset-[22%] rounded-full border border-white/20" />
-              <span className="absolute inset-[34%] animate-pulse rounded-full bg-gf-lime/20 motion-reduce:animate-none" />
-              <div className="absolute inset-0 animate-[spin_1.8s_linear_infinite] motion-reduce:animate-none">
-                {Array.from({ length: SEATS }, (_, i) => (
-                  <span
-                    key={i}
-                    className="absolute top-1/2 left-1/2 size-1.5 rounded-full bg-gf-lime"
-                    style={{
-                      opacity: 0.22 + (i / (SEATS - 1)) * 0.78,
-                      marginLeft: -3,
-                      marginTop: -3,
-                      transform: `rotate(${i * 30}deg) translateY(-28px)`,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+          <VideoCover src={LOCATION_VIDEO} poster={LOCATION_POSTER} />
 
           <div
             aria-hidden
@@ -142,3 +57,4 @@ export function LocationSection() {
     </section>
   );
 }
+

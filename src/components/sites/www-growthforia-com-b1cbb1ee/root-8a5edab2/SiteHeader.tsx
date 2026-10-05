@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ASSET } from "@/lib/growthforia/content";
 import { CloseIcon, MenuIcon } from "../shared/icons";
+import { openInviteModal } from "./InviteModal";
 import { LimeCta } from "./LimeCta";
 
 const links = [
@@ -48,7 +49,7 @@ export function SiteHeader() {
               ))}
             </nav>
             <LimeCta
-              href="#cta"
+              onClick={openInviteModal}
               className="h-[37px] min-h-[37px] px-5 text-[13px]"
             >
               Request an Invitation
@@ -79,19 +80,21 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <div onClick={() => setOpen(false)}>
-              <LimeCta
-                href="#cta"
-                className="h-[37px] min-h-[37px] w-full px-5 text-[13px]"
-              >
-                Request an Invitation
-              </LimeCta>
-            </div>
+            <LimeCta
+              onClick={() => {
+                setOpen(false);
+                openInviteModal();
+              }}
+              className="h-[37px] min-h-[37px] w-full px-5 text-[13px]"
+            >
+              Request an Invitation
+            </LimeCta>
           </nav>
         </div>
       ) : null}
     </header>
   );
 }
+
 
 

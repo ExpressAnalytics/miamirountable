@@ -1,4 +1,5 @@
 import { CookieBanner } from "@/components/sites/www-growthforia-com-b1cbb1ee/root-8a5edab2/CookieBanner";
+import { InviteModal } from "@/components/sites/www-growthforia-com-b1cbb1ee/root-8a5edab2/InviteModal";
 import { ExpectSection } from "@/components/sites/www-growthforia-com-b1cbb1ee/root-8a5edab2/ExpectSection";
 import { FaqSection } from "@/components/sites/www-growthforia-com-b1cbb1ee/root-8a5edab2/FaqSection";
 import { HeroSection } from "@/components/sites/www-growthforia-com-b1cbb1ee/root-8a5edab2/HeroSection";
@@ -41,6 +42,8 @@ export default function Home() {
       <SectionLine />
       <SiteFooter />
       <CookieBanner />
+      <InviteModal />
     </main>
   );
 }
+
