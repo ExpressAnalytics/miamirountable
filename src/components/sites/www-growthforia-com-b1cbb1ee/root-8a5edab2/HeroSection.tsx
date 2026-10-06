@@ -79,7 +79,7 @@ export function HeroSection() {
                 <span className="text-gf-lime">
                   <SeatsIcon />
                 </span>
-                12 seats per evening
+                Limited Seats
               </li>
               <li className="flex min-h-11 items-center gap-2">
                 <span className="text-gf-lime">

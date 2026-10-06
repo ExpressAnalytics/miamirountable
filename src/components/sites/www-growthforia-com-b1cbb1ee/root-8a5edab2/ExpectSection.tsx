@@ -1,8 +1,8 @@
 const frames = [
   {
-    n: "2",
+    n: "1",
     title: "Roundtables",
-    body: "Two dates to choose from - each an evening of networking, a moderated roundtable discussion, and dinner. The room is not recorded, keeping every seat off the record for a genuinely candid conversation among peers.",
+    body: "An evening of networking, a moderated roundtable discussion, and a multi-course dinner. The room is not recorded, keeping every seat off the record for a genuinely candid conversation among peers.",
   },
   {
     n: "3",
@@ -61,5 +61,3 @@ export function ExpectSection() {
     </section>
   );
 }
-
-
