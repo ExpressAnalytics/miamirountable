@@ -24,51 +24,69 @@ export function VideoCover({
     const el = videoRef.current;
     if (!el) return;
 
+    // iOS autoplay checks the muted attribute. The React prop is not enough.
+    el.muted = true;
+    el.defaultMuted = true;
+    el.setAttribute("muted", "");
+    el.setAttribute("playsinline", "");
+
+    const shouldPlay = { current: eager };
     const play = () => {
-      void el.play().catch(() => setFailed(true));
+      if (!shouldPlay.current) return;
+      void el.play().catch(() => {});
     };
 
-    if (eager) {
-      play();
-      return;
-    }
+    if (eager) play();
 
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) play();
-        else el.pause();
-      },
-      { rootMargin: "200px 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const io = eager
+      ? null
+      : new IntersectionObserver(
+          ([entry]) => {
+            shouldPlay.current = entry.isIntersecting;
+            if (entry.isIntersecting) play();
+            else el.pause();
+          },
+          { rootMargin: "200px 0px" },
+        );
+    io?.observe(el);
+
+    // Low Power Mode rejects the first autoplay. A later tap is a user gesture.
+    window.addEventListener("pointerdown", play);
+    el.addEventListener("canplay", play);
+
+    return () => {
+      shouldPlay.current = false;
+      io?.disconnect();
+      window.removeEventListener("pointerdown", play);
+      el.removeEventListener("canplay", play);
+    };
   }, [eager]);
 
   return (
     <div className="absolute inset-0">
-      <img
-        src={poster}
-        alt=""
-        fetchPriority={eager ? "high" : "auto"}
-        className="absolute inset-0 h-full w-full object-cover"
-      />
       <video
         ref={videoRef}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 motion-reduce:transition-none ${
-          ready ? "opacity-100" : "opacity-0"
-        }`}
+        className="absolute inset-0 h-full w-full object-cover"
         autoPlay={eager}
         muted
         loop
         playsInline
-        preload={eager ? "auto" : "metadata"}
+        preload="auto"
         poster={poster}
         src={src}
         onPlaying={() => setReady(true)}
         onError={() => setFailed(true)}
       />
+      <img
+        src={poster}
+        alt=""
+        fetchPriority={eager ? "high" : "auto"}
+        className={`pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover transition-opacity duration-500 motion-reduce:transition-none ${
+          ready ? "opacity-0" : "opacity-100"
+        }`}
+      />
       <div
-        className={`absolute inset-0 z-[1] flex justify-center bg-[#0b0c0e]/25 transition-opacity duration-500 motion-reduce:transition-none ${loaderClassName} ${
+        className={`absolute inset-0 z-[2] flex justify-center bg-[#0b0c0e]/25 transition-opacity duration-500 motion-reduce:transition-none ${loaderClassName} ${
           showLoader ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         role="status"
