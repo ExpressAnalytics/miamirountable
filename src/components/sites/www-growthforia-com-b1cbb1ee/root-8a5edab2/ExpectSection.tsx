@@ -1,7 +1,7 @@
 const frames = [
   {
     n: "1",
-    title: "Roundtables",
+    title: "Roundtable",
     body: "An evening of networking, a moderated roundtable discussion, and a multi-course dinner. The room is not recorded, keeping every seat off the record for a genuinely candid conversation among peers.",
   },
   {
@@ -12,7 +12,7 @@ const frames = [
   },
   {
     n: "12",
-    title: "In the Room",
+    title: "Executives",
     body: "A table of twelve, C-suite, VP and Head-of leaders across Data, Analytics, AI, Digital, Technology and Marketing. Attendance is curated for fit: company, seniority and current priorities.",
   },
 ];
