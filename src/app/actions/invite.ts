@@ -45,7 +45,7 @@ export async function submitInvite(raw: unknown): Promise<InviteResult> {
     context: {
       ...(hutk ? { hutk } : {}),
       pageUri,
-      pageName: "Miami Roundtable",
+      pageName: "Seattle Roundtable",
     },
   });
 

@@ -1,8 +1,7 @@
-import { ASSET, LOCATION_POSTER } from "@/lib/growthforia/content";
+import { ASSET } from "@/lib/growthforia/content";
 import { CheckIcon } from "../shared/icons";
-import { VideoCover } from "./VideoCover";
 
-const LOCATION_VIDEO = `${ASSET}/location.mp4`;
+const VENUE_SITE = "https://www.charlotterestaurantseattle.com/private-dining";
 
 export function LocationSection() {
   return (
@@ -13,7 +12,15 @@ export function LocationSection() {
         </h2>
 
         <div className="relative mt-12 h-[420px] overflow-hidden md:h-[560px]">
-          <VideoCover src={LOCATION_VIDEO} poster={LOCATION_POSTER} />
+          <img
+            src={`${ASSET}/images/seattle.webp`}
+            alt="Charlotte Restaurant and Lounge on the 16th floor of the Lotte Hotel Seattle"
+            width={1600}
+            height={900}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
 
           <div
             aria-hidden
@@ -29,28 +36,36 @@ export function LocationSection() {
               Venue
             </p>
             <h2 className="font-display mt-4 text-[32px] leading-[1.1] tracking-[-0.03em] text-white md:text-[48px]">
-              COTE Miami
+              Charlotte Restaurant &amp; Lounge
             </h2>
-            <p className="mt-3 text-[16px] text-white/80 md:text-[18px]">
-              Private Gold Room · Miami Design District
+            <p className="mt-3 max-w-[36ch] text-[16px] text-white/80 md:text-[18px]">
+              Contemporary Pacific Northwest fine dining at the Lotte Hotel Seattle
             </p>
             <p className="mt-4 max-w-[48ch] text-[15px] leading-[1.55] text-white/75 md:text-[16px]">
-              3900 NE 2nd Ave, Miami, FL 33137
+              809 5th Ave, 16th Floor, Seattle, WA 98104
             </p>
             <ul className="mt-5 space-y-2.5 text-[15px] text-white/90 md:text-[16px]">
               <li className="flex items-center gap-2.5">
                 <span className="text-gf-lime">
                   <CheckIcon />
                 </span>
-                America&apos;s first and only Michelin-starred Korean Steakhouse
+                16th floor, panoramic downtown views
               </li>
               <li className="flex items-center gap-2.5">
                 <span className="text-gf-lime">
                   <CheckIcon />
                 </span>
-                Hosted valet parking provided.
+                Sixteen guests each night
               </li>
             </ul>
+            {/* <a
+              href={VENUE_SITE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto mt-5 inline-flex min-h-11 w-fit items-center text-[15px] text-gf-lime underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gf-lime"
+            >
+              Private dining
+            </a> */}
           </div>
         </div>
       </div>

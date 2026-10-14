@@ -4,7 +4,7 @@ export function SiteFooter() {
       <div className="gf-container flex flex-col gap-3 text-[13px] text-white/45 md:flex-row md:items-start md:justify-between">
         <div className="flex flex-col gap-1">
           <p>
-            &copy; {new Date().getFullYear()} Express Analytics. Miami
+            &copy; {new Date().getFullYear()} Express Analytics. Seattle
             Executive Roundtable Series. All rights reserved.
           </p>
           <p className="leading-[1.5]">
@@ -31,3 +31,4 @@ export function SiteFooter() {
     </footer>
   );
 }
+

@@ -116,10 +116,10 @@ export const faqs = [
     q: "What’s the dress code?",
     a: "Business casual, you're coming straight from work. Our host team will be in business attire.",
   },
-  // {
-  //   q: "Can I attend both evenings?",
-  //   a: "Each evening is capped at twelve seats to keep the conversation intimate, we’d love to have you at one. Pick whichever date works best above.",
-  // },
+  {
+    q: "Can I attend both evenings?",
+    a: "Each night is capped at sixteen seats. Request the evening that works.",
+  },
 ];
 
 export const pricingPerks = [
@@ -129,4 +129,5 @@ export const pricingPerks = [
   "All session recordings on-demand after the event",
   "Slides and materials sent post-event",
 ];
+
 

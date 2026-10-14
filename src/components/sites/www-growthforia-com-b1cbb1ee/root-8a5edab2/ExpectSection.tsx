@@ -1,7 +1,7 @@
 const frames = [
   {
-    n: "1",
-    title: "Roundtable",
+    n: "2",
+    title: "Roundtables",
     body: "An evening of networking, a moderated roundtable discussion, and a multi-course dinner. The room is not recorded, keeping every seat off the record for a genuinely candid conversation among peers.",
   },
   {
@@ -11,9 +11,9 @@ const frames = [
     cta: { href: "#speakers", label: "View Moderators" },
   },
   {
-    n: "12",
+    n: "16",
     title: "Executives",
-    body: "A table of twelve, C-suite, VP and Head-of leaders across Data, Analytics, AI, Digital, Technology and Marketing. Attendance is curated for fit: company, seniority and current priorities.",
+    body: "A table of sixteen, C-suite, VP and Head-of leaders across Data, Analytics, AI, Digital, Technology and Marketing. Attendance is curated for fit: company, seniority and current priorities.",
   },
 ];
 
@@ -61,3 +61,4 @@ export function ExpectSection() {
     </section>
   );
 }
+

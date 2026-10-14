@@ -16,15 +16,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Miami Executive Roundtable | Express Analytics",
+  title: "Seattle Executive Roundtable | Express Analytics",
   description:
-    "A private, off-the-record roundtable for senior Data, AI and Marketing leaders. Twelve seats at COTE Miami. October 2026.",
+    "A private, off-the-record roundtable for senior Data, AI and Marketing leaders. Sixteen seats a night at Charlotte Restaurant & Lounge, Seattle. November 9 and 10, 2026.",
   keywords: [
-    "Miami executive roundtable",
+    "Seattle executive roundtable",
     "Express Analytics",
-    "AI roundtable Miami",
+    "AI roundtable Seattle",
     "enterprise AI dinner",
-    "COTE Miami",
+    "Charlotte Restaurant Seattle",
     "invitation-only executive dinner",
     "data and AI leaders",
   ],
@@ -80,6 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </html>
   );
 }
+
 
 
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const SEATS = 12;
+const SEATS = 16;
 
 export function VideoCover({
   src,
@@ -16,13 +16,20 @@ export function VideoCover({
   loaderClassName?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const posterRef = useRef<HTMLImageElement>(null);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [armed, setArmed] = useState(false);
   const showLoader = !ready && !failed;
 
   useEffect(() => {
+    const posterEl = posterRef.current;
+    if (posterEl?.complete && posterEl.naturalWidth > 0) setArmed(true);
+  }, [poster]);
+
+  useEffect(() => {
     const el = videoRef.current;
-    if (!el) return;
+    if (!el || !armed) return;
 
     // iOS autoplay checks the muted attribute. The React prop is not enough.
     el.muted = true;
@@ -60,7 +67,7 @@ export function VideoCover({
       window.removeEventListener("pointerdown", play);
       el.removeEventListener("canplay", play);
     };
-  }, [eager]);
+  }, [eager, armed]);
 
   return (
     <div className="absolute inset-0">
@@ -71,16 +78,20 @@ export function VideoCover({
         muted
         loop
         playsInline
-        preload="auto"
-        poster={poster}
-        src={src}
+        preload={armed ? "auto" : "none"}
+        src={armed ? src : undefined}
         onPlaying={() => setReady(true)}
         onError={() => setFailed(true)}
       />
       <img
+        ref={posterRef}
         src={poster}
         alt=""
-        fetchPriority={eager ? "high" : "auto"}
+        width={1600}
+        height={900}
+        fetchPriority={eager ? "high" : "low"}
+        decoding={eager ? "sync" : "async"}
+        onLoad={() => setArmed(true)}
         className={`pointer-events-none absolute inset-0 z-[1] h-full w-full object-cover transition-opacity duration-500 motion-reduce:transition-none ${
           ready ? "opacity-0" : "opacity-100"
         }`}
@@ -106,7 +117,7 @@ export function VideoCover({
                   opacity: 0.22 + (i / (SEATS - 1)) * 0.78,
                   marginLeft: -3,
                   marginTop: -3,
-                  transform: `rotate(${i * 30}deg) translateY(-28px)`,
+                  transform: `rotate(${i * (360 / SEATS)}deg) translateY(-28px)`,
                 }}
               />
             ))}

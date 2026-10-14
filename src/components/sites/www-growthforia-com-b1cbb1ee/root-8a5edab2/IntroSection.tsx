@@ -17,10 +17,11 @@ export function IntroSection() {
             and act, on your organization&apos;s behalf.
           </p>
           <p className="mt-5 text-[16px] leading-[1.6] text-white/80 italic md:text-[18px]">
-            Twelve peers. One evening. No one selling anything.
+            Sixteen peers. One evening. No one selling anything.
           </p>
         </div>
       </div>
     </section>
   );
 }
+

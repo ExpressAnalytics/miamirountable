@@ -34,7 +34,7 @@ function liveMessage(
     case "evening":
       return EVENINGS.includes(value as (typeof EVENINGS)[number])
         ? undefined
-        : "Required: choose Wednesday, October 14, 2026.";
+        : "Required: choose November 9 or November 10, 2026.";
     case "firstname":
       return value.trim() ? undefined : "Required: first name.";
     case "lastname":
@@ -331,7 +331,7 @@ export function InviteForm() {
       {step === 1 ? (
         <fieldset className="border-0 p-0">
           <legend className="mb-3 text-[15px] text-white">
-            Available Slots for COTE Miami
+            Available slots for Charlotte, Seattle
           </legend>
           <div className="relative">
             <select
@@ -367,7 +367,7 @@ export function InviteForm() {
             </p>
           ) : null}
           <p className="mt-4 text-[15px] leading-relaxed text-white">
-            Requesting a seat for {evening} · COTE Miami
+            Requesting a seat for {evening} · Charlotte, Seattle
           </p>
         </fieldset>
       ) : null}
