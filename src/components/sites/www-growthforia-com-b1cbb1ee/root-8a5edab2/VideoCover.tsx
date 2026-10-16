@@ -87,8 +87,8 @@ export function VideoCover({
         ref={posterRef}
         src={poster}
         alt=""
-        width={1600}
-        height={900}
+        width={1280}
+        height={720}
         fetchPriority={eager ? "high" : "low"}
         decoding={eager ? "sync" : "async"}
         onLoad={() => setArmed(true)}
@@ -127,3 +127,4 @@ export function VideoCover({
     </div>
   );
 }
+

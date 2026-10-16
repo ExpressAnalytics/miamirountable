@@ -331,7 +331,7 @@ export function InviteForm() {
       {step === 1 ? (
         <fieldset className="border-0 p-0">
           <legend className="mb-3 text-[15px] text-white">
-            Available slots for Charlotte, Seattle
+            Available slots for Seattle
           </legend>
           <div className="relative">
             <select
