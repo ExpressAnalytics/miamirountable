@@ -367,7 +367,7 @@ export function InviteForm() {
             </p>
           ) : null}
           <p className="mt-4 text-[15px] leading-relaxed text-white">
-            Requesting a seat for {evening} · Charlotte, Seattle
+            Requesting a seat for {evening} · Seattle
           </p>
         </fieldset>
       ) : null}
